@@ -61,21 +61,77 @@ fetchData().then(({ traces, annotations }) => {
     const layout = {
         title: 'Azucares en Cereales',
         xaxis: {
-            tickvals: ['2010', '2015'],
+            tickvals: ['2010', '2012', '2015', '2016'], // Include 2012 on the x-axis
             tickmode: 'array'
         },
         yaxis: {
-            range: [0, 50],
+            range: [0, 45],
             showticklabels: false
         },
         showlegend: false,
         margin: { l: 70, r: 100, t: 130 },
-        annotations: annotations // Add annotations to layout
+        annotations: [
+            ...annotations,
+            {
+                x: '2016',  
+                y: 45,  
+                xref: 'x',
+                yref: 'y',
+                text: 'Implementación Sellos',  
+                showarrow: false,
+                font: { color: 'black', size: 14 },
+                xanchor: 'center',
+                yanchor: 'bottom'
+            },
+            {
+                x: '2012',  
+                y: 45,  
+                xref: 'x',
+                yref: 'y',
+                text: 'Aprobación Ley',  
+                showarrow: false,
+                font: { color: 'black', size: 14 },
+                xanchor: 'center',
+                yanchor: 'bottom'
+            }
+        ],
+        shapes: [
+            {
+                type: 'line',
+                x0: '2016',
+                y0: 0,
+                x1: '2016',
+                y1: 50,
+                xref: 'x',
+                yref: 'y',
+                line: {
+                    color: 'black',
+                    width: 2,
+                    dash: 'dot'  
+                }
+            },
+            {
+                type: 'line',
+                x0: '2012',
+                y0: 0,
+                x1: '2012',
+                y1: 50,
+                xref: 'x',
+                yref: 'y',
+                line: {
+                    color: 'black',
+                    width: 2,
+                    dash: 'dot'  
+                }
+            }
+        ]
     };
 
     Plotly.newPlot('myDiv', traces, {
         ...layout,
-        width: 500,  // Set desired width
+        width: 700,  // Set desired width
         height: 700  // Set desired height
     });
+
 });
+
