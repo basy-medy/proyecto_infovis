@@ -59,7 +59,7 @@ async function fetchData() {
 
 fetchData().then(({ traces, annotations }) => {
     const layout = {
-        title: 'Azucares en Cereales',
+        title: 'Azúcares en Cereales [g/100g]',
         xaxis: {
             tickvals: ['2010', '2012', '2015', '2016'], // Include 2012 on the x-axis
             tickmode: 'array'
@@ -126,12 +126,7 @@ fetchData().then(({ traces, annotations }) => {
             }
         ]
     };
-
-    Plotly.newPlot('myDiv', traces, {
-        ...layout,
-        width: 700,  // Set desired width
-        height: 700  // Set desired height
-    });
+    Plotly.newPlot('myDiv', traces, layout);
 
 });
 
