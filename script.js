@@ -1,6 +1,6 @@
 
 
-async function fetchData() {
+async function fetchData() { 
     const response = await fetch('cereales.csv');
     const data = await response.text();
 
@@ -16,41 +16,52 @@ async function fetchData() {
         const brand = cols[0];
         const year1 = parseFloat(cols[1]);
         const year2 = parseFloat(cols[2]);
+        const year3 = parseFloat(cols[3]);  // New 2020 value
 
-        if (!isNaN(year1) && !isNaN(year2) && brand) {
+        if (!isNaN(year1) && !isNaN(year2) && !isNaN(year3) && brand) {
             traces.push({
-                x: ['2010', '2015'],
-                y: [year1, year2],
+                x: ['2010', '2015', '2020'],
+                y: [year1, year2, year3],
                 name: brand,
                 type: 'scatter',
                 mode: 'lines+markers',
-                line: { shape: 'linear', color: colors[index % colors.length], width: 3 }, // Assign color
-                marker: { size: 8, symbol: ['circle', 'square'] }
+                line: { shape: 'linear', color: colors[index % colors.length], width: 3 },
+                marker: { size: 8, symbol: ['circle', 'square', 'triangle'] }
             });
 
-            // Add annotation for the starting point (2010)
-            annotations.push({
-                x: '2010',
-                y: year1,
-                xref: 'x',
-                yref: 'y',
-                text: `${brand}  ${Math.round(year1)} `,
-                showarrow: false,
-                font: { color: 'black', size: 12 },
-                xanchor: 'right'
-            });
-
-            // Add annotation for the ending point (2015)
-            annotations.push({
-                x: '2015',
-                y: year2,
-                xref: 'x',
-                yref: 'y',
-                text: `  ${Math.round(year2)}`,
-                showarrow: false,
-                font: { color: 'black', size: 12 },
-                xanchor: 'left'
-            });
+            // Annotations for 2010, 2015, and 2020
+            annotations.push(
+                {
+                    x: '2010',
+                    y: year1,
+                    xref: 'x',
+                    yref: 'y',
+                    text: `${brand} ${Math.round(year1)}`,
+                    showarrow: false,
+                    font: { color: 'black', size: 12 },
+                    xanchor: 'right'
+                },
+                {
+                    x: '2015',
+                    y: year2 + 0.5,
+                    xref: 'x',
+                    yref: 'y',
+                    text: ` ${Math.round(year2)}`,
+                    showarrow: false,
+                    font: { color: 'black', size: 12 },
+                    xanchor: 'center'
+                },
+                {
+                    x: '2020',
+                    y: year3,
+                    xref: 'x',
+                    yref: 'y',
+                    text: ` ${Math.round(year3)}`,
+                    showarrow: false,
+                    font: { color: 'black', size: 12 },
+                    xanchor: 'left'
+                }
+            );
         }
     });
 
@@ -61,7 +72,7 @@ fetchData().then(({ traces, annotations }) => {
     const layout = {
         title: 'Azúcares en Cereales [g/100g]',
         xaxis: {
-            tickvals: ['2010', '2012', '2015', '2016'], // Include 2012 on the x-axis
+            tickvals: ['2010', '2012', '2015', '2016', '2020'],  // Include 2020
             tickmode: 'array'
         },
         yaxis: {
@@ -73,22 +84,22 @@ fetchData().then(({ traces, annotations }) => {
         annotations: [
             ...annotations,
             {
-                x: '2016',  
-                y: 45,  
+                x: '2016',
+                y: 45,
                 xref: 'x',
                 yref: 'y',
-                text: 'Implementación Sellos',  
+                text: 'Implementación Sellos',
                 showarrow: false,
                 font: { color: 'black', size: 14 },
                 xanchor: 'center',
                 yanchor: 'bottom'
             },
             {
-                x: '2012',  
-                y: 45,  
+                x: '2012',
+                y: 45,
                 xref: 'x',
                 yref: 'y',
-                text: 'Aprobación Ley',  
+                text: 'Aprobación Ley',
                 showarrow: false,
                 font: { color: 'black', size: 14 },
                 xanchor: 'center',
@@ -107,7 +118,7 @@ fetchData().then(({ traces, annotations }) => {
                 line: {
                     color: 'black',
                     width: 2,
-                    dash: 'dot'  
+                    dash: 'dot'
                 }
             },
             {
@@ -121,12 +132,12 @@ fetchData().then(({ traces, annotations }) => {
                 line: {
                     color: 'black',
                     width: 2,
-                    dash: 'dot'  
+                    dash: 'dot'
                 }
             }
         ]
     };
     Plotly.newPlot('myDiv', traces, layout);
-
 });
+
 
