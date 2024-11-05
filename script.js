@@ -104,6 +104,17 @@ fetchData().then(({ traces, annotations }) => {
                 font: { color: 'black', size: 14 },
                 xanchor: 'center',
                 yanchor: 'bottom'
+            },
+            {
+                x: '2010',
+                y: 45,
+                xref: 'x',
+                yref: 'y',
+                text: 'Cereales',
+                showarrow: false,
+                font: { color: 'black', size: 14 },
+                xanchor: 'right',
+                yanchor: 'bottom'
             }
         ],
         shapes: [
@@ -127,6 +138,20 @@ fetchData().then(({ traces, annotations }) => {
                 y0: 0,
                 x1: '2012',
                 y1: 50,
+                xref: 'x',
+                yref: 'y',
+                line: {
+                    color: 'black',
+                    width: 2,
+                    dash: 'dot'
+                }
+            },
+            {
+                type: 'line',
+                x0: '2010',
+                y0: 0,
+                x1: '2010',
+                y1: 0,
                 xref: 'x',
                 yref: 'y',
                 line: {
