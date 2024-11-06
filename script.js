@@ -6,7 +6,7 @@ async function fetchData() {
 
     const rows = data.split('\n').slice(1);
 
-    const colors = ['#648FFF', '#785EF0', '#DC267F', '#FE6100', '#FFB000'];
+    const colors = ['#D55E00', '#E69F00', '#56B4E9', '#009E73', '#CC79A7'];
 
     const traces = [];
     const annotations = [];
