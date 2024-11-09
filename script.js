@@ -316,7 +316,7 @@ document.querySelectorAll('.image-boxes .box').forEach(box => {
                         y: 30,
                         xref: 'x',
                         yref: 'y',
-                        text: '<b>Nutrientes<b>',
+                        text: '<b>Nutrientes[g]<b>',
                         showarrow: false,
                         font: { color: 'black', size: 14 },
                         xanchor: 'right',
