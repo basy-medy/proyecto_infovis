@@ -291,7 +291,7 @@ document.querySelectorAll('.image-boxes .box').forEach(box => {
                     ...annotations,
                     {
                         x: '2016',
-                        y: 15,
+                        y: 30,
                         xref: 'x',
                         yref: 'y',
                         text: 'Implementación<br>sellos',
@@ -302,7 +302,7 @@ document.querySelectorAll('.image-boxes .box').forEach(box => {
                     },
                     {
                         x: '2012',
-                        y: 15,
+                        y: 30,
                         xref: 'x',
                         yref: 'y',
                         text: 'Aprobación<br>ley',
@@ -313,10 +313,10 @@ document.querySelectorAll('.image-boxes .box').forEach(box => {
                     },
                     {
                         x: '2010',
-                        y: 15,
+                        y: 30,
                         xref: 'x',
                         yref: 'y',
-                        text: '<b>Cereales<b>',
+                        text: '<b>Nutrientes<b>',
                         showarrow: false,
                         font: { color: 'black', size: 14 },
                         xanchor: 'right',
@@ -343,7 +343,7 @@ document.querySelectorAll('.image-boxes .box').forEach(box => {
                     ...annotations,
                     {
                         x: '2016',
-                        y: 15,
+                        y: 100,
                         xref: 'x',
                         yref: 'y',
                         text: 'Implementación<br>sellos',
@@ -354,7 +354,7 @@ document.querySelectorAll('.image-boxes .box').forEach(box => {
                     },
                     {
                         x: '2012',
-                        y: 15,
+                        y: 100,
                         xref: 'x',
                         yref: 'y',
                         text: 'Aprobación<br>ley',
@@ -365,10 +365,10 @@ document.querySelectorAll('.image-boxes .box').forEach(box => {
                     },
                     {
                         x: '2010',
-                        y: 15,
+                        y: 100,
                         xref: 'x',
                         yref: 'y',
-                        text: '<b>Cereales<b>',
+                        text: '<b>Sodio[mg]<b>',
                         showarrow: false,
                         font: { color: 'black', size: 14 },
                         xanchor: 'right',
