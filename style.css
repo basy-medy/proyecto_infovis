@@ -58,3 +58,37 @@ body {
     width: 700px;
     height: 700px;
 }
+
+#newDiv {
+    width: 700px;
+    height: 700px;
+}
+
+#SodioDiv {
+    width: 700px;
+    height: 700px;
+}
+
+.image-boxes {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+  }
+  
+  .box {
+    flex: 1;
+    max-width: 100px; /* Set the max width of each box */
+    text-align: center;
+  }
+  
+  .box img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s;
+  }
+  
+  .box img:hover {
+    transform: scale(1.05);
+  }
