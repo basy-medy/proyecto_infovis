@@ -260,11 +260,15 @@ async function fetchSodio(cereal) {
     return { traces, annotations, cereal };
 }
 
+const audios = [
+    new Audio('Monoballs.mp3'), new Audio('ChocoKrispis.mp3'),
+    new Audio('ColaCao.mp3'), new Audio('Trix.mp3'), new Audio('Chocapic.mp3')
+]
+
 // Event listener for image boxes to load new charts on click
 document.querySelectorAll('.image-boxes .box').forEach(box => {
     box.addEventListener('click', () => {
         const cereal = box.getAttribute('data-cereal');
-
         // Check if the clicked box is "Image 1" (default view)
         if (cereal === 'default') {
             // Show 'myDiv' and hide 'newDiv' and 'SodioDiv'
@@ -278,6 +282,15 @@ document.querySelectorAll('.image-boxes .box').forEach(box => {
         document.getElementById('myDiv').style.display = 'none';
         document.getElementById('newDiv').style.display = 'block';
         document.getElementById('SodioDiv').style.display = 'block';
+        const audio = new Audio(cereal + ".mp3")
+        if (audio) {
+            audio.pause();
+            audio.currentTime = 0;
+        }
+        // Play the audio file
+        audio.play().catch(error => {
+            console.error('Error playing audio:', error);
+        });
 
         // Fetch and display nutritional data chart in 'newDiv'
         fetchData1(cereal).then(({ traces, annotations, cereal }) => {
