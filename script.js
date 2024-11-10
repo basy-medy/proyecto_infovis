@@ -260,10 +260,15 @@ async function fetchSodio(cereal) {
     return { traces, annotations, cereal };
 }
 
-const audios = [
-    new Audio('Monoballs.mp3'), new Audio('ChocoKrispis.mp3'),
-    new Audio('ColaCao.mp3'), new Audio('Trix.mp3'), new Audio('Chocapic.mp3')
-]
+const audioFiles = {
+    Monoballs: 'Monoballs.mp3', ChocoKrispis: 'ChocoKrispis.mp3',
+    ColaCao: 'ColaCao.mp3', Trix: 'Trix.mp3', Chocapic: 'Chocapic.mp3'
+};
+
+const audioMap = {};
+for (const [cereal, filePath] of Object.entries(audioFiles)) {
+    audioMap[cereal] = new Audio(filePath);
+}
 
 // Event listener for image boxes to load new charts on click
 document.querySelectorAll('.image-boxes .box').forEach(box => {
@@ -282,15 +287,17 @@ document.querySelectorAll('.image-boxes .box').forEach(box => {
         document.getElementById('myDiv').style.display = 'none';
         document.getElementById('newDiv').style.display = 'block';
         document.getElementById('SodioDiv').style.display = 'block';
-        const audio = new Audio(cereal + ".mp3")
-        if (audio) {
+        if (cereal && audioMap[cereal]) {
+            // Retrieve the audio object from the map
+            const audio = audioMap[cereal];
+    
+            // Reset and play the audio
             audio.pause();
             audio.currentTime = 0;
+            audio.play().catch(error => {
+                console.error('Error playing audio:', error);
+            });
         }
-        // Play the audio file
-        audio.play().catch(error => {
-            console.error('Error playing audio:', error);
-        });
 
         // Fetch and display nutritional data chart in 'newDiv'
         fetchData1(cereal).then(({ traces, annotations, cereal }) => {
