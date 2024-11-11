@@ -290,7 +290,7 @@ document.querySelectorAll('.image-boxes .box').forEach(box => {
         players.stopAll();
         if (cereal && audioMap[cereal]) {
             // Set volume for the current cereal (example volume level)
-            setVolume(cereal, -40); // Adjust -10 to desired volume level for each cereal
+            setVolume(cereal, -20); // Adjust -10 to desired volume level for each cereal
             audioMap[cereal].start();
         }
 
