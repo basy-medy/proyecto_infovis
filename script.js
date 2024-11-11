@@ -260,20 +260,28 @@ async function fetchSodio(cereal) {
     return { traces, annotations, cereal };
 }
 
+// Import Tone.js library (make sure to include the Tone.js library in your HTML file)
 const audioFiles = {
-    Monoballs: 'Monoballs.mp3', ChocoKrispis: 'ChocoKrispis.mp3',
-    ColaCao: 'ColaCao.mp3', Trix: 'Trix.mp3', Chocapic: 'Chocapic.mp3'
+    Monoballs: 'Monoballs.mp3', 
+    ChocoKrispis: 'ChocoKrispis.mp3',
+    ColaCao: 'ColaCao.mp3', 
+    Trix: 'Trix.mp3', 
+    Chocapic: 'Chocapic.mp3'
 };
 
+// Load audio files into Tone.js Players
 const audioMap = {};
-for (const [cereal, filePath] of Object.entries(audioFiles)) {
-    audioMap[cereal] = new Audio(filePath);
+const players = new Tone.Players(audioFiles).toDestination();
+
+for (const [cereal] of Object.entries(audioFiles)) {
+    audioMap[cereal] = players.player(cereal);
 }
 
 // Event listener for image boxes to load new charts on click
 document.querySelectorAll('.image-boxes .box').forEach(box => {
     box.addEventListener('click', () => {
         const cereal = box.getAttribute('data-cereal');
+
         // Check if the clicked box is "Image 1" (default view)
         if (cereal === 'default') {
             // Show 'myDiv' and hide 'newDiv' and 'SodioDiv'
@@ -287,16 +295,11 @@ document.querySelectorAll('.image-boxes .box').forEach(box => {
         document.getElementById('myDiv').style.display = 'none';
         document.getElementById('newDiv').style.display = 'block';
         document.getElementById('SodioDiv').style.display = 'block';
+
+        // Stop all other sounds and play the new sound
+        players.stopAll();
         if (cereal && audioMap[cereal]) {
-            // Retrieve the audio object from the map
-            const audio = audioMap[cereal];
-    
-            // Reset and play the audio
-            audio.pause();
-            audio.currentTime = 0;
-            audio.play().catch(error => {
-                console.error('Error playing audio:', error);
-            });
+            audioMap[cereal].start();
         }
 
         // Fetch and display nutritional data chart in 'newDiv'
