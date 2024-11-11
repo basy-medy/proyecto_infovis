@@ -235,7 +235,7 @@ async function fetchSodio(cereal) {
 
             annotations.push(
                 { x: '2010', y: year1, xref: 'x', yref: 'y', text: `<b>${brand}</b> ${Math.round(year1)}`, showarrow: false, font: { color: 'black', size: 12 }, xanchor: 'right' },
-                { x: '2015', y: year2 + 0.4, xref: 'x', yref: 'y', text: ` ${Math.round(year2)}`, showarrow: false, font: { color: 'black', size: 12 }, xanchor: 'center' },
+                { x: '2015', y: year2 + 2, xref: 'x', yref: 'y', text: ` ${Math.round(year2)}`, showarrow: false, font: { color: 'black', size: 12 }, xanchor: 'center' },
                 { x: '2024', y: year4 + 0.4, xref: 'x', yref: 'y', text: ` ${Math.round(year4)}`, showarrow: false, font: { color: 'black', size: 12 }, xanchor: 'left' }
             );
         }
