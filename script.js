@@ -17,7 +17,7 @@ async function fetchData() {
         const year1 = parseFloat(cols[1]);
         const year2 = parseFloat(cols[2]);
         const year3 = parseFloat(cols[3]);
-        const year4 = parseFloat(cols[4]);   // New 2020 value
+        const year4 = parseFloat(cols[4]); 
 
         if (!isNaN(year1) && !isNaN(year2) && !isNaN(year3) && !isNaN(year4) && brand) {
             traces.push({
@@ -30,7 +30,6 @@ async function fetchData() {
                 marker: { size: 8, symbol: ['circle', 'circle', 'circle', 'circle'] }
             });
 
-            // Annotations for 2010, 2015, and 2020
             annotations.push(
                 {
                     x: '2010' - 0.2,
@@ -307,7 +306,7 @@ document.querySelectorAll('.image-boxes .box').forEach(box => {
             const layout = {
                 title: `Datos Nutricionales de ${cereal}`,
                 xaxis: { tickvals: ['2010', '2012', '2015', '2016', '2020', '2024'], tickmode: 'array' },
-                yaxis: { range: [0, 30], showticklabels: false },
+                yaxis: { range: [0, 26], showticklabels: false },
                 showlegend: false,
                 margin: { l: 70, r: 100, t: 130 },
                 annotations: [
@@ -359,7 +358,7 @@ document.querySelectorAll('.image-boxes .box').forEach(box => {
             const layout = {
                 title: `Datos Sodio[mg] de ${cereal}`,
                 xaxis: { tickvals: ['2010', '2012', '2015', '2016', '2020', '2024'], tickmode: 'array' },
-                yaxis: { range: [0, 100], showticklabels: false },
+                yaxis: { range: [0, 145], showticklabels: false },
                 showlegend: false,
                 margin: { l: 70, r: 100, t: 130 },
                 annotations: [
