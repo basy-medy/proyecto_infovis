@@ -313,7 +313,7 @@ document.querySelectorAll('.image-boxes .box').forEach(box => {
                     ...annotations,
                     {
                         x: '2016',
-                        y: 30,
+                        y: 26,
                         xref: 'x',
                         yref: 'y',
                         text: 'Implementación<br>sellos',
@@ -324,7 +324,7 @@ document.querySelectorAll('.image-boxes .box').forEach(box => {
                     },
                     {
                         x: '2012',
-                        y: 30,
+                        y: 26,
                         xref: 'x',
                         yref: 'y',
                         text: 'Aprobación<br>ley',
@@ -335,7 +335,7 @@ document.querySelectorAll('.image-boxes .box').forEach(box => {
                     },
                     {
                         x: '2010',
-                        y: 30,
+                        y: 26,
                         xref: 'x',
                         yref: 'y',
                         text: '<b>Nutrientes[g]<b>',
@@ -365,7 +365,7 @@ document.querySelectorAll('.image-boxes .box').forEach(box => {
                     ...annotations,
                     {
                         x: '2016',
-                        y: 100,
+                        y: 145,
                         xref: 'x',
                         yref: 'y',
                         text: 'Implementación<br>sellos',
@@ -376,7 +376,7 @@ document.querySelectorAll('.image-boxes .box').forEach(box => {
                     },
                     {
                         x: '2012',
-                        y: 100,
+                        y: 145,
                         xref: 'x',
                         yref: 'y',
                         text: 'Aprobación<br>ley',
@@ -387,7 +387,7 @@ document.querySelectorAll('.image-boxes .box').forEach(box => {
                     },
                     {
                         x: '2010',
-                        y: 100,
+                        y: 145,
                         xref: 'x',
                         yref: 'y',
                         text: '<b>Sodio[mg]<b>',
