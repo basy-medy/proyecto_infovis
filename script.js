@@ -261,6 +261,12 @@ for (const [cereal] of Object.entries(audioFiles)) {
     audioMap[cereal] = players.player(cereal);
 }
 
+function setVolume(cereal, volume) {
+    if (audioMap[cereal]) {
+        audioMap[cereal].volume.value = volume;
+    }
+}
+
 // Event listener for image boxes to load new charts on click
 document.querySelectorAll('.image-boxes .box').forEach(box => {
     box.addEventListener('click', () => {
@@ -283,6 +289,8 @@ document.querySelectorAll('.image-boxes .box').forEach(box => {
         // Stop all other sounds and play the new sound
         players.stopAll();
         if (cereal && audioMap[cereal]) {
+            // Set volume for the current cereal (example volume level)
+            setVolume(cereal, -40); // Adjust -10 to desired volume level for each cereal
             audioMap[cereal].start();
         }
 
