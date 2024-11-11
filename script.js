@@ -16,18 +16,17 @@ async function fetchData() {
         const brand = cols[0];
         const year1 = parseFloat(cols[1]);
         const year2 = parseFloat(cols[2]);
-        const year3 = parseFloat(cols[3]);
         const year4 = parseFloat(cols[4]); 
 
-        if (!isNaN(year1) && !isNaN(year2) && !isNaN(year3) && !isNaN(year4) && brand) {
+        if (!isNaN(year1) && !isNaN(year2) && !isNaN(year4) && brand) {
             traces.push({
-                x: ['2010', '2015', '2020', '2024'],
-                y: [year1, year2, year3, year4],
+                x: ['2010', '2015', '2024'],
+                y: [year1, year2, year4],
                 name: brand,
                 type: 'scatter',
                 mode: 'lines+markers',
                 line: { shape: 'linear', color: colors[index % colors.length], width: 3 },
-                marker: { size: 8, symbol: ['circle', 'circle', 'circle', 'circle'] }
+                marker: { size: 8, symbol: ['circle', 'circle', 'circle'] }
             });
 
             annotations.push(
@@ -47,16 +46,6 @@ async function fetchData() {
                     xref: 'x',
                     yref: 'y',
                     text: ` ${Math.round(year2)}`,
-                    showarrow: false,
-                    font: { color: 'black', size: 12 },
-                    xanchor: 'center'
-                },
-                {
-                    x: '2020',
-                    y: year3 + 0.4,
-                    xref: 'x',
-                    yref: 'y',
-                    text: ` ${Math.round(year3)}`,
                     showarrow: false,
                     font: { color: 'black', size: 12 },
                     xanchor: 'center'
@@ -82,7 +71,7 @@ fetchData().then(({ traces, annotations }) => {
     const layout = {
         title: 'Azúcares en Cereales [g/30g]',
         xaxis: {
-            tickvals: ['2010', '2012', '2015', '2016', '2020', '2024'],  // Include 2020
+            tickvals: ['2010', '2012', '2015', '2016', '2024'], 
             tickmode: 'array'
         },
         yaxis: {
@@ -192,24 +181,22 @@ async function fetchData1(cereal) {
         const brand = cols[0];
         const year1 = parseFloat(cols[1]);
         const year2 = parseFloat(cols[2]);
-        const year3 = parseFloat(cols[3]);
         const year4 = parseFloat(cols[4]);
 
-        if (!isNaN(year1) && !isNaN(year2) && !isNaN(year3) && !isNaN(year4) && brand) {
+        if (!isNaN(year1) && !isNaN(year2) && !isNaN(year4) && brand) {
             traces.push({
-                x: ['2010', '2015', '2020', '2024'],
-                y: [year1, year2, year3, year4],
+                x: ['2010', '2015', '2024'],
+                y: [year1, year2, year4],
                 name: brand,
                 type: 'scatter',
                 mode: 'lines+markers',
                 line: { shape: 'linear', color: colors[index % colors.length], width: 3 },
-                marker: { size: 8, symbol: ['circle', 'circle', 'circle', 'circle'] }
+                marker: { size: 8, symbol: ['circle', 'circle', 'circle'] }
             });
 
             annotations.push(
                 { x: '2010', y: year1, xref: 'x', yref: 'y', text: `<b>${brand}</b> ${Math.round(year1)}`, showarrow: false, font: { color: 'black', size: 12 }, xanchor: 'right' },
                 { x: '2015', y: year2 + 0.4, xref: 'x', yref: 'y', text: ` ${Math.round(year2)}`, showarrow: false, font: { color: 'black', size: 12 }, xanchor: 'center' },
-                { x: '2020', y: year3 + 0.4, xref: 'x', yref: 'y', text: ` ${Math.round(year3)}`, showarrow: false, font: { color: 'black', size: 12 }, xanchor: 'center' },
                 { x: '2024', y: year4 + 0.4, xref: 'x', yref: 'y', text: ` ${Math.round(year4)}`, showarrow: false, font: { color: 'black', size: 12 }, xanchor: 'left' }
             );
         }
@@ -233,24 +220,22 @@ async function fetchSodio(cereal) {
         const brand = cols[0];
         const year1 = parseFloat(cols[1]);
         const year2 = parseFloat(cols[2]);
-        const year3 = parseFloat(cols[3]);
         const year4 = parseFloat(cols[4]);
 
-        if (!isNaN(year1) && !isNaN(year2) && !isNaN(year3) && !isNaN(year4) && brand) {
+        if (!isNaN(year1) && !isNaN(year2) && !isNaN(year4) && brand) {
             traces.push({
-                x: ['2010', '2015', '2020', '2024'],
-                y: [year1, year2, year3, year4],
+                x: ['2010', '2015', '2024'],
+                y: [year1, year2, year4],
                 name: brand,
                 type: 'scatter',
                 mode: 'lines+markers',
                 line: { shape: 'linear', color: colors[index % colors.length], width: 3 },
-                marker: { size: 8, symbol: ['circle', 'circle', 'circle', 'circle'] }
+                marker: { size: 8, symbol: ['circle', 'circle', 'circle'] }
             });
 
             annotations.push(
                 { x: '2010', y: year1, xref: 'x', yref: 'y', text: `<b>${brand}</b> ${Math.round(year1)}`, showarrow: false, font: { color: 'black', size: 12 }, xanchor: 'right' },
                 { x: '2015', y: year2 + 0.4, xref: 'x', yref: 'y', text: ` ${Math.round(year2)}`, showarrow: false, font: { color: 'black', size: 12 }, xanchor: 'center' },
-                { x: '2020', y: year3 + 0.4, xref: 'x', yref: 'y', text: ` ${Math.round(year3)}`, showarrow: false, font: { color: 'black', size: 12 }, xanchor: 'center' },
                 { x: '2024', y: year4 + 0.4, xref: 'x', yref: 'y', text: ` ${Math.round(year4)}`, showarrow: false, font: { color: 'black', size: 12 }, xanchor: 'left' }
             );
         }
@@ -305,7 +290,7 @@ document.querySelectorAll('.image-boxes .box').forEach(box => {
         fetchData1(cereal).then(({ traces, annotations, cereal }) => {
             const layout = {
                 title: `Datos Nutricionales de ${cereal}`,
-                xaxis: { tickvals: ['2010', '2012', '2015', '2016', '2020', '2024'], tickmode: 'array' },
+                xaxis: { tickvals: ['2010', '2012', '2015', '2016', '2024'], tickmode: 'array' },
                 yaxis: { range: [0, 26], showticklabels: false },
                 showlegend: false,
                 margin: { l: 70, r: 100, t: 130 },
@@ -357,7 +342,7 @@ document.querySelectorAll('.image-boxes .box').forEach(box => {
         fetchSodio(cereal).then(({ traces, annotations, cereal }) => {
             const layout = {
                 title: `Datos Sodio[mg] de ${cereal}`,
-                xaxis: { tickvals: ['2010', '2012', '2015', '2016', '2020', '2024'], tickmode: 'array' },
+                xaxis: { tickvals: ['2010', '2012', '2015', '2016', '2024'], tickmode: 'array' },
                 yaxis: { range: [0, 145], showticklabels: false },
                 showlegend: false,
                 margin: { l: 70, r: 100, t: 130 },
@@ -398,8 +383,8 @@ document.querySelectorAll('.image-boxes .box').forEach(box => {
                     }
                 ],
                 shapes: [
-                    { type: 'line', x0: '2016', y0: 0, x1: '2016', y1: 100, xref: 'x', yref: 'y', line: { color: 'black', width: 2, dash: 'dot' }, layer: 'below' },
-                    { type: 'line', x0: '2012', y0: 0, x1: '2012', y1: 100, xref: 'x', yref: 'y', line: { color: 'black', width: 2, dash: 'dot' }, layer: 'below' }
+                    { type: 'line', x0: '2016', y0: 0, x1: '2016', y1: 145, xref: 'x', yref: 'y', line: { color: 'black', width: 2, dash: 'dot' }, layer: 'below' },
+                    { type: 'line', x0: '2012', y0: 0, x1: '2012', y1: 145, xref: 'x', yref: 'y', line: { color: 'black', width: 2, dash: 'dot' }, layer: 'below' }
                 ]
             };
             Plotly.newPlot('SodioDiv', traces, layout);
